@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+html {
+    background-color: #3D5656;
+}
+:root {
+    --color: white;
+}
+.head {
+    width: 100vw;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #CFFDE1;
+    opacity: 80%;
+}
+h2,h3 {
+    padding: 0;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: var(--color);
+}
+.search-bar {
+    padding: 20px;
+    margin: 20px;
+    opacity: 80%;
+}
+.search-bar h2 {
+    margin-bottom: 10px;
+}
+#search-bar {
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 6px;
+    border: 1px solid #00B4CC;
+    color: #fff;
+    background: white;
+}
+
+.search-icon {
+    font-size: 20px;
+    border-radius: 6px;
+    background-color: #68B984;
+    padding: 5px;
+}
+button:hover {
+    cursor: pointer;
+}
+
+.panel {
+    margin: 15px;
+    width: 53rem;
+    height: 18rem;
+    border: 2px solid black;
+    border-radius: 6px;
+    opacity: 80%;
+}
+.content {
+    margin: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.icon{
+    font-size: 100px;
+}
+.search-history {
+    display: flex;
+    flex-flow: column;
+    gap: 20px;
+    height: 12rem;
+    width: 20vw; 
+}
+
+.search-history button{
+    font-size: 30px;
+}
+.five-day {
+    margin: 20px;
+    padding: 20px;
+}
+.weather-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: row wrap;
+    overflow-x: hidden;
+}
+
+.card {
+    margin: 5px;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 12rem;
+    height: 15rem;
+    background-color: #68B984;
+}
+@media only screen and (max-width: 768px){ 
+    .container {
+        width: fit-content;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .panel {
+        width: auto;
+
+    }
+}
