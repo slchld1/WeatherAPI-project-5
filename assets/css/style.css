@@ -114,3 +114,7 @@ button:hover {
 
     }
 }
+.loadout {
+    display:flex;
+    justify-content: space-evenly;
+}

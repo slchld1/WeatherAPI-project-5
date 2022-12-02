@@ -16,10 +16,11 @@
         <h1>Weather Dashboard</h2>
     </div>
     <div class="container">
-        <div class="search-bar">
-            <h2>Search for a city here:</h2>
-            <input placeholder="Search City" id="search-bar">
-            <button class="search-icon" type="submit"><i class="fa fa-search"></i></button>
+        <form class="search-bar" id="search-form">
+            <label class="search-label" for="cityName">Search for a city here:</h2>
+            <input placeholder="Search City" id="search-bar" type="text" />
+            <button class="search-icon" id="searchbtn" type="submit"><i class="fa fa-search"></i></button>
+        </form>
             <div class="search-history">
                 <h3>Search History:</h3>
     
@@ -30,16 +31,18 @@
                 <button class="historyBtn">Atlanta</button>
     
             </div>
-        </div>
         <div class="panel">
             <div class="content">
                 <div class="icon">
-                    <i class="wi wi-day-sunny"></i>
+                    <i id="icon" class="wi"></i>
                 </div>
-                <h1>City Name</h1>
-                <h3>Temperature &#8457</h3>
-                <h3>Wind:</h3>
+                <h1>City Name: <h3 id="location"></h3></h1>
+                <h3>Temperature <h3 id="temp"></h3></h3>
+                <h3>Wind:<h3 id='wind'></h3></h3>
                 <h3>Humidity:</h3>
+            </div>
+            <div class="loadout">
+                <h2 id="description"></h2>
             </div>
         </div>
         <div class="five-day">
@@ -65,5 +68,7 @@
     </div>
     <button id="click">click</button>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 <script src="./assets/js/script.js"></script>
 </html>
