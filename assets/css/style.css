@@ -44,7 +44,9 @@ h2,h3 {
     color: black;
     background: white;
 }
-
+.search-history-main {
+    margin: 20px;
+}
 .search-icon {
     font-size: 20px;
     border-radius: 6px;
@@ -54,7 +56,10 @@ h2,h3 {
 button:hover {
     cursor: pointer;
 }
-
+.historyBtn {
+    font-size: 30px;
+    width: 100%;
+}
 .panel {
     margin: 15px;
     width: 53rem;
@@ -90,7 +95,7 @@ button:hover {
     flex-direction: column;
     gap: 20px;
     height: 12rem;
-    width: 40%;
+    width: 50%;
 }
 
 .search-history button{

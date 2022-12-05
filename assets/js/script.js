@@ -1,4 +1,5 @@
 var icon = document.getElementById('icon')
+//update time live
 $(function(){
 function updateTime() {
     $('#today').html(moment().format('MMMM Do, YYYY'))
@@ -14,12 +15,13 @@ setInterval(function() {
 updateTime();
 },60000);
 });
+//on submit input
 $("#search-form").submit(function (e) { 
     e.preventDefault();
 var input = $('#search-bar').val()
 
 var history = { city: [] };
-
+//save to local storage
 function onLoad() {
 if(localStorage.getItem('history')) {
     history = JSON.parse(localStorage.getItem('history'));
@@ -32,29 +34,30 @@ localStorage.setItem('history',JSON.stringify(history));
 }
 onLoad()
 addHistory(input)
+//append buttons from search history
 function addCity(){
+    $('#search-history').empty()
     for(let i= history.city.length; i > (history.city.length-3); i--){
         console.log(history.city[i-1])
-    }
+        var createButton = $('<input>').attr(
+            {
+                type: 'button', 
+                class: 'historyBtn',
+                id: 'historyBtn',
+                value: history.city[i-1].toString(),
+                
+            })
+                $('#search-history').append(createButton)
 }
-addCity()
-// if (localStorage.getItem("history") != null)
-// {
-//     var historyTmp = localStorage.getItem("history");
-//     $('#history').empty();
-//     Object.entries(localStorage)
-//     for(var i =0; i<oldhistoryarray.length; i++)
-//     {
-//         $('#history').append('<p>'+oldhistoryarray[i]+'</p>');
-//     }
-//     historyTmp += input;
-//     localStorage.setItem("history",JSON.stringify(historyTmp));
-// }
-//local storage using object.entries()?
-
-    // input = "";
-
-    //current day city weather
+}
+addCity();
+//button function replaces input to recall search
+$('#search-history').click(function (e) { 
+    e.preventDefault();
+    input = e.target.value 
+    weatherCity()
+});
+//convert city name to location api
     function weatherCity(cityName, sCode, cCode) {
         var key = 'b5d6abd64c1bcaf907e06b633fed6528';
         var cityName = input
@@ -88,6 +91,7 @@ addCity()
         // catch any errors
     });
 }
+//weather data functions for current day ~ 5 day cards
 function listWeather(d) {
     var fahrenheit = Math.round(((parseFloat(d.list[0].main.temp)-273.15)*1.8)+32); 
     document.getElementById('description').innerHTML = d.list[0].weather[0].description;
@@ -122,6 +126,7 @@ function listWeather(d) {
         $('#icon').addClass("wi-cloudy")
     }
 }
+//day 1
 function listWeatherOne(d) {
     var fahrenheit = Math.round(((parseFloat(d.list[3].main.temp)-273.15)*1.8)+32); 
     document.getElementById('dOne').innerHTML = d.list[3].weather[0].description;
@@ -156,6 +161,7 @@ function listWeatherOne(d) {
     }
     console.log(d.list[3])
 }
+//day two
     function listWeatherTwo(d) {
         var fahrenheit = Math.round(((parseFloat(d.list[11].main.temp)-273.15)*1.8)+32); 
         document.getElementById('dOne').innerHTML = d.list[11].weather[0].description;
@@ -190,6 +196,7 @@ function listWeatherOne(d) {
         }
         console.log(d.list[11])
     }
+//day 3
 function listWeatherThree(d) {
     var fahrenheit = Math.round(((parseFloat(d.list[19].main.temp)-273.15)*1.8)+32); 
     document.getElementById('dThree').innerHTML = d.list[0].weather[0].description;
@@ -224,6 +231,7 @@ function listWeatherThree(d) {
     }
     console.log(d.list[19])
 }
+//day 4
 function listWeatherFour(d) {
     var fahrenheit = Math.round(((parseFloat(d.list[27].main.temp)-273.15)*1.8)+32); 
     document.getElementById('dFour').innerHTML = d.list[0].weather[0].description;
@@ -258,6 +266,7 @@ function listWeatherFour(d) {
     }
     console.log(d.list[27])
 }
+//day 5
 function listWeatherFive(d) {
     var fahrenheit = Math.round(((parseFloat(d.list[35].main.temp)-273.15)*1.8)+32); 
     document.getElementById('dFive').innerHTML = d.list[35].weather[0].description;
