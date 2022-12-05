@@ -17,57 +17,97 @@
         <h1>Weather Dashboard</h2>
     </div>
     <div class="container">
+        <div class="search">
         <form class="search-bar" id="search-form">
-            <label class="search-label" for="cityName">Search for a city here:</h2>
+            <div class="search-label" for="cityName"><h2>Search for a city here:</h2></div><br>
             <input placeholder="Search City" id="search-bar" type="text" />
             <button class="search-icon" id="searchbtn" type="submit"><i class="fa fa-search"></i></button>
         </form>
             <div class="search-history">
                 <h3>Search History:</h3>
     
-                <button class="historyBtn">Atlanta</button>
+                <button class="historyBtn" id="history"></button>
     
-                <button class="historyBtn">Atlanta</button>
+                <button class="historyBtn"></button>
     
-                <button class="historyBtn">Atlanta</button>
+                <button class="historyBtn"></button>
     
             </div>
+        </div>
         <div class="panel">
+            <div class="date">
+                <h1 id="today"></h1>
+            </div>
             <div class="content">
+                <h1><strong></strong></h1>
+                <h1><strong>City Name:</strong> <h3 id="location"></h3></h1>
+                <h3><strong>Temperature:</strong> <h3 id="temp"></h3></h3>
+                <h3><strong>Wind:</strong> <h3 id='wind'></h3></h3>
+                <h3><strong>Humidity:</strong> <h3 id='humid'></h3></h3>
+            </div>
+            <div class="loadout">
                 <div class="icon">
                     <i id="icon" class="wi"></i>
                 </div>
-                <h1>City Name: <h3 id="location"></h3></h1>
-                <h3>Temperature <h3 id="temp"></h3></h3>
-                <h3>Wind:<h3 id='wind'></h3></h3>
-                <h3>Humidity:</h3>
-            </div>
-            <div class="loadout">
-                <h2 id="description"></h2>
+                <strong><h1 id="description"></h1></strong>
             </div>
         </div>
         <div class="five-day">
             <h2>5-Day forecast</h2>
             <div class="weather-cards">
                 <div class="card" id="card01">
-                    
+                    <h3 id="dayOne"></h3>
+                    <div class="iconCard">
+                        <i id="iconOne" class="wi"></i>
+                    </div>
+                    <h4 id="dOne"></h4>
+                    <h4>Temperature: <h4 id="tOne"></h4></h4>
+                    <h4>Wind: <h4 id="wOne"></h4></h4>
+                    <h4>Humidity: <h4 id="hOne"></h4></h4>
                 </div>
                 <div class="card" id="card02">
-                    
+                    <h3 id="dayTwo"></h3>
+                    <div class="iconCard">
+                        <i id="iconTwo" class="wi"></i>
+                    </div>
+                    <h4 id="dtwo"></h4>
+                    <h4>Temperature: <h4 id="tTwo"></h4></h4>
+                    <h4>Wind: <h4 id="wTwo"></h4></h4>
+                    <h4>Humidity: <h4 id="hTwo"></h4></h4>
                 </div>
                 <div class="card" id="card03">
-                    
+                    <h3 id="dayThree"></h3>
+                    <div class="iconCard">
+                        <i id="iconThree" class="wi"></i>
+                    </div>
+                    <h4 id="dThree"></h4>
+                    <h4>Temperature: <h4 id="tThree"></h4></h4>
+                    <h4>Wind: <h4 id="wThree"></h4></h4>
+                    <h4>Humidity: <h4 id="hThree"></h4></h4>
                 </div>
                 <div class="card" id="card04">
-                    
+                    <h3 id="dayFour"></h3>
+                    <div class="iconCard">
+                        <i id="iconFour" class="wi"></i>
+                    </div>
+                    <h4 id="dFour"></h4>
+                    <h4>Temperature: <h4 id="tFour"></h4></h4>
+                    <h4>Wind: <h4 id="wFour"></h4></h4>
+                    <h4>Humidity: <h4 id=hFour></h4></h4>
                 </div>
                 <div class="card" id="card05">
-                    
+                    <h3 id="dayFive"></h3>
+                    <div class="iconCard">
+                        <i id="iconFive" class="wi"></i>
+                    </div>
+                    <h4 id="dFive"></h4>
+                    <h4>Temperature: <h4 id="tFive"></h4></h4>
+                    <h4>Wind: <h4 id="wFive"></h4></h4>
+                    <h4>Humidity: <h4 id="hFive"></h4></h4>   
                 </div>
             </div>
         </div>
     </div>
-    <button id="click">click</button>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
