@@ -63,7 +63,7 @@ button:hover {
 .panel {
     margin: 15px;
     width: 53rem;
-    height: 19rem;
+    height: 22rem;
     border: 2px solid black;
     border-radius: 6px;
     opacity: 80%;
@@ -121,6 +121,11 @@ button:hover {
     height: 15rem;
     background-color: #68B984;
 }
+.loadout {
+    display:flex;
+    justify-content: space-evenly;
+    height: 10rem;
+}
 @media only screen and (max-width: 768px){ 
     .head {
         width: 100vw;
@@ -146,9 +151,11 @@ button:hover {
         display: grid;
         grid-template-columns: 1fr 300px
     }
-}
-.loadout {
-    display:flex;
-    justify-content: space-evenly;
-    height: 10rem;
+    .loadout {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
 }
