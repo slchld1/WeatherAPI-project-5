@@ -75,11 +75,7 @@ $('#search-history').click(function (e) {
                 .then(function(resp) { return resp.json() }) 
                 .then(function(data) {
                 listWeather(data);
-                listWeatherOne(data);
-                listWeatherTwo(data);
-                listWeatherThree(data);
-                listWeatherFour(data);
-                listWeatherFive(data);
+                weatherCard(data);
                 console.log(data)
             })
             .catch(function() {
@@ -100,6 +96,8 @@ function listWeather(d) {
     document.getElementById('wind').innerHTML = d.list[0].wind.speed + 'MPH'
     document.getElementById('humid').innerHTML = d.list[0].main.humidity + '%'
     //icon added for current day
+    $('#icon').removeClass();
+    $('#icon').addClass('wi')
     var id = d.list[0].weather[0].id
     if ( id >= 200 && id < 233) {
         $('#icon').addClass("wi-thunderstorm")
@@ -126,6 +124,13 @@ function listWeather(d) {
         $('#icon').addClass("wi-cloudy")
     }
 }
+function weatherCard(data) {
+    listWeatherOne(data);
+    listWeatherTwo(data);
+    listWeatherThree(data);
+    listWeatherFour(data);
+    listWeatherFive(data);
+}
 //day 1
 function listWeatherOne(d) {
     var fahrenheit = Math.round(((parseFloat(d.list[3].main.temp)-273.15)*1.8)+32); 
@@ -134,6 +139,8 @@ function listWeatherOne(d) {
     document.getElementById('wOne').innerHTML = d.list[3].wind.speed + 'MPH'
     document.getElementById('hOne').innerHTML = d.list[3].main.humidity + '%'
     //icon added for current day
+    $('#iconOne').removeClass();
+    $('#iconOne').addClass('wi')
     var id = d.list[3].weather[0].id
     if ( id >= 200 && id < 233) {
         $('#iconOne').addClass("wi-thunderstorm")
@@ -164,22 +171,24 @@ function listWeatherOne(d) {
 //day two
     function listWeatherTwo(d) {
         var fahrenheit = Math.round(((parseFloat(d.list[11].main.temp)-273.15)*1.8)+32); 
-        document.getElementById('dOne').innerHTML = d.list[11].weather[0].description;
-        document.getElementById('tOne').innerHTML = fahrenheit + '&#8457;';
-        document.getElementById('wOne').innerHTML = d.list[11].wind.speed + 'MPH'
-        document.getElementById('hOne').innerHTML = d.list[11].main.humidity + '%'
+        document.getElementById('disTwo').innerHTML = d.list[11].weather[0].description;
+        document.getElementById('tTwo').innerHTML = fahrenheit + '&#8457;';
+        document.getElementById('wTwo').innerHTML = d.list[11].wind.speed + 'MPH'
+        document.getElementById('hTwo').innerHTML = d.list[11].main.humidity + '%'
         //icon added for current day
+        $('#iconTwo').removeClass();
+        $('#iconTwo').addClass('wi')
         var id = d.list[11].weather[0].id
-        if ( id >= 200 && id < 233) {
+        if ( id > 199 && id < 233) {
             $('#iconTwo').addClass("wi-thunderstorm")
         }
-        if ( id >= 300 && id < 322) {
+        if ( id > 299 && id < 322) {
             $('#iconTwo').addClass("wi-showers")
         }
-        if( id >= 500 && id < 532) {
+        if( id > 499 && id < 532) {
             $('#iconTwo').addClass("wi-rain")
         }
-        if ( id >= 600 && id < 623) {
+        if ( id > 599 && id < 623) {
             $('#iconTwo').addClass("wi-snow")
         }
         if( id > 700 && id < 772) {
@@ -191,10 +200,10 @@ function listWeatherOne(d) {
         if ( id === 800) {
             $('#iconTwo').addClass("wi-day-sunny");
         }
-        if (801 < id < 805) {
+        if (id > 801 && id < 805) {
             $('#iconTwo').addClass("wi-cloudy")
         }
-        console.log(d.list[11])
+        console.log(d.list[11].weather[0].id)
     }
 //day 3
 function listWeatherThree(d) {
@@ -204,20 +213,22 @@ function listWeatherThree(d) {
     document.getElementById('wThree').innerHTML = d.list[19].wind.speed + 'MPH'
     document.getElementById('hThree').innerHTML = d.list[19].main.humidity + '%'
     //icon added for current day
+    $('#iconThree').removeClass();
+    $('#iconThree').addClass('wi')
     var id = d.list[19].weather[0].id
-    if ( id >= 200 && id < 233) {
+    if ( id > 199 && id < 233) {
         $('#iconThree').addClass("wi-thunderstorm")
     }
-    if ( id >= 300 && id < 322) {
+    if ( id > 299 && id < 322) {
         $('#iconThree').addClass("wi-showers")
     }
-    if( id >= 500 && id < 532) {
+    if( id > 499 && id < 532) {
         $('#iconThree').addClass("wi-rain")
     }
-    if ( id >= 600 && id < 623) {
+    if ( id > 599 && id < 623) {
         $('#iconThree').addClass("wi-snow")
     }
-    if( id > 700 && id < 772) {
+    if( id > 699 && id < 772) {
         $('#iconThree').addClass("wi-smog")
     }
     if ( id === 781) {
@@ -239,20 +250,22 @@ function listWeatherFour(d) {
     document.getElementById('wFour').innerHTML = d.list[27].wind.speed + 'MPH'
     document.getElementById('hFour').innerHTML = d.list[27].main.humidity + '%'
     //icon added for current day
+    $('#iconFour').removeClass();
+    $('#iconFour').addClass('wi')
     var id = d.list[27].weather[0].id
-    if ( id >= 200 && id < 233) {
+    if ( id > 199 && id < 233) {
         $('#iconFour').addClass("wi-thunderstorm")
     }
-    if ( id >= 300 && id < 322) {
+    if ( id > 299 && id < 322) {
         $('#iconFour').addClass("wi-showers")
     }
-    if( id >= 500 && id < 532) {
+    if( id > 499 && id < 532) {
         $('#iconFour').addClass("wi-rain")
     }
-    if ( id >= 600 && id < 623) {
+    if ( id > 599 && id < 623) {
         $('#iconFour').addClass("wi-snow")
     }
-    if( id > 700 && id < 772) {
+    if( id > 699 && id < 772) {
         $('#iconFour').addClass("wi-smog")
     }
     if ( id === 781) {
@@ -261,7 +274,7 @@ function listWeatherFour(d) {
     if ( id === 800) {
         $('#iconFour').addClass("wi-day-sunny");
     }
-    if (id > 800 && id < 805) {
+    if ( id > 800 && id < 805) {
         $('#iconFour').addClass("wi-cloudy")
     }
     console.log(d.list[27])
@@ -274,20 +287,22 @@ function listWeatherFive(d) {
     document.getElementById('wFive').innerHTML = d.list[35].wind.speed + 'MPH'
     document.getElementById('hFive').innerHTML = d.list[35].main.humidity + '%'
     //icon added for current day
+    $('#iconFive').removeClass();
+    $('#iconFive').addClass('wi')
     var id = d.list[35].weather[0].id
-    if ( id >= 200 && id < 233) {
+    if ( id > 199 && id < 233) {
         $('#iconFive').addClass("wi-thunderstorm")
     }
-    if ( id >= 300 && id < 322) {
+    if ( id > 299 && id < 322) {
         $('#iconFive').addClass("wi-showers")
     }
-    if( id >= 500 && id < 532) {
+    if( id > 499 && id < 532) {
         $('#iconFive').addClass("wi-rain")
     }
-    if ( id >= 600 && id < 623) {
+    if ( id > 599 && id < 623) {
         $('#iconFive').addClass("wi-snow")
     }
-    if( id > 700 && id < 772) {
+    if( id > 699 && id < 772) {
         $('#iconFive').addClass("wi-smog")
     }
     if ( id === 781) {
@@ -296,11 +311,12 @@ function listWeatherFive(d) {
     if ( id === 800) {
         $('#iconFive').addClass("wi-day-sunny");
     }
-    if (id > 800 && id < 805) {
+    if ( id > 800 && id < 805) {
         $('#iconFive').addClass("wi-cloudy")
     }
     console.log(d.list[35])
 }
+
 //3,11,19,27,35
     weatherCity();
 });
